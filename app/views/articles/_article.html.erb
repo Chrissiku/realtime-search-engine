@@ -1,7 +1,6 @@
 <div id="<%= dom_id article %>">
   <p>
-    <strong>Title:</strong>
-    <%= article.title %>
+    <%= article.title %> <%= link_to "View", article_path(article) %>
   </p>
 
   <p>
