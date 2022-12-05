@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.describe "articles/edit", type: :view do
   let(:article) {
     Article.create!(
-      title: "MyString",
-      content: "MyText"
+      title: "My String",
+      content: "My very long Text"
     )
   }
 
