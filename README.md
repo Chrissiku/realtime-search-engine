@@ -1,6 +1,9 @@
 # Real-time Search box
 > This project is a realtime search engine that shows analytics on whats people searched for the most.
 
+## Note
+This project is realtime search engine built with `ruby on rails` and in order to manage the realtime page load I implement the `Turbo_Frames` features linked with `Stimulus Js`.
+
 ## Live Link
 [Live Link]()
 
