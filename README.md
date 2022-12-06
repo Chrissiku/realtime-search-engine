@@ -11,75 +11,60 @@
 - Postgresql
 - stimulus
 
-
 ## Getting Started
 
 To get a local copy up and running follow these simple example steps.
 
-- git clone 
-
-- cd search-engine
-
+```sh
+git clone git@github.com:Chrissiku/realtime-search-engine.git
+cd realtime-search-engine
+```
 
 ### Prerequisites
-To start please have the following running
-- Ruby
-- Rails
-- PostgresSQL
-
+Before starting make sure that you have the following runing on your computer
+- `Ruby 3.1.2`
+- `Rails 7.0.4`
+- `PostgresSQL any version`
 
 ### Setup
 
 Install gems with:
-
-```
+```sh
 bundle install
 ```
+on the root of your project create a file `.env` to store your database name and the password.
 
-Setup database with:
-
+```sh
+touch .env
 ```
-rails db:create
+`.env` file content
+```ruby
+DB_USERNAME=your_database_name
+DB_PASSWORD=your_database_password
+```
+
+Setup database
+
+```sh
+rails db:setup
 rails db:migrate
+rails db:seed
 ```
 
-Start server with:
+Start server 
 
-```
+```sh
 rails server
 ```
 
-Open ```http://localhost:3000/``` in your browser.
-
-
+Open [http://localhost:3000/](http://localhost:3000/]) in your browser.
+ 
+ At this point you should start browsing the app
 ### Run tests
 
-Install npm with:
-
 ```
-npm i
+bundle exec rspec
 ```
-
-Install rspec with:
-
-```
-bundle install
-```
-
-and
-
-```
-rails generate rspec:install
-```
-
-run the test with:
-
-```
-rspec spec
-```
-
-
-
 ## Author
 
 👤 **Chris Siku**
@@ -91,16 +76,23 @@ rspec spec
 
 
 
-## 🤝 Contributing
+### 🔭 Future Features
 
+- [ ] Display how users formulate their search
+
+### 🤝 Contributing 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page]().
+Feel free to check the [issues page](../../issues/).
 
 
-## Show your support
+<!-- SUPPORT -->
 
-Give a ⭐️ if you like this project!
+## ⭐️ Show your support
+
+> Write a message to encourage readers to support your project
+
+If you like this project...
 
 
 ## Acknowledgments
