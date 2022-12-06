@@ -4,44 +4,20 @@ class ArticlesController < ApplicationController
   # GET /articles or /articles.json
   def index
     if params[:query].present?
+      @articles = Article.where("title LIKE ?", "%#{params[:query]}%")
 
-      # Convert the params to a array.
-      # then Loop into the whole search table and convert each row into an array and compare it with the params array.
-      # If the params array includes the row array then it will be added update the rows array
-      # elese, save the new params array into the search table.
+      params[:query].split.each do |word|
+        if word.length > 2
+          if Analytic.find_by(word: word)
+            Analytic.find_by(word: word).increment!(:count)
+          else
+            Analytic.create(word: word, count: 1)
+          end
+        end          
+      end
 
-      # params_array = params[:query].split(" ")
-      # rows = []
-      # Search.all.each do |row|
-      #   row_array = row.input.split(" ")
-      #   if params_array.include?(row_array)
-      #     rows << row
-      #   else
-      #     Search.create(input: params[:query])
-      #   end
-      # end
-
-
-
-
-
-
-
-
-      # @articles = Search.find_by(input: params[:query].strip)
-      # if @articles.present?
-      #   sleep(1)
-      #   @articles.update_attributes(input: params[:query].strip)
-      #   # if params[:query].strip.length > 5
-      #   #   Search.create(input: params[:query].strip)
-      #   # end
-      # else
-      #   sleep(1)
-      #   if params[:query].strip.length > 5
-      #     Search.create(input: params[:query].strip)
-      #   end
-      # end
-     
+      # Save the params[:query] to input field of seaches table.
+      Search.create(query: params[:query])
 
     else
       @articles = Article.all

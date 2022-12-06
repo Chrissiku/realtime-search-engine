@@ -1,0 +1,15 @@
+<h1>The most typed worlds</h1>
+
+<table class="table table-bordered">
+  <tr>
+    <th>Word typed</th>
+    <th>Count number</th>
+  </tr>
+  <% @analytics.each do |a| %>
+    <tr>
+      <td><%= a.word %></td>
+      <td><%= a.count %></td>
+    </tr>
+  <% end %>
+</table>
+
