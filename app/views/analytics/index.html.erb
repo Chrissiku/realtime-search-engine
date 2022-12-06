@@ -1,20 +1,51 @@
-<h1>Ranking of searches</h1>
+<h1>Ranking of searches by words</h1>
 
-<table class="table table-bordered">
-  <tr>
-    <th>Word typed</th>
-    <th>Count number</th>
-  </tr>
-  <% @analytics.each do |a| %>
-    <tr>
-      <td><%= a.word %></td>
-      <td><%= a.count %></td>
-    </tr>
-  <% end %>
+<div class="row">
+  <div class="col-md-9 col-12">
+    <table class="table table-bordered">
+      <tr>
+        <th>Word</th>
+        <th>Typed number</th>
+      </tr>
+        <% @analytics.each do |a| %>
+        <tr>
+          <td><%= a.word %></td>
+          <td><%= a.count %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
 
-  <% # Add link to the root path %>
+  
+  <div class="col-md-3 col-12">
+    <table class="table table-bordered">
+      <tr>
+        <th>Trending</th>
+      </tr>
+      <% @analytics.first(3).each do |search| %>
+        <tr>
+          <td><strong><%= search.word %></strong></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+<div class='row'>
+<h3>Most used question world</h3>
+    <table class="table table-bordered">
+      <tr>
+        <th>Question word</th>
+        <th>Asked time</th>
+      </tr>
+        <% @questions.each do |a| %>
+        <tr>
+          <td><%= a.word %></td>
+          <td><%= a.count %></td>
+        </tr>
+      <% end %>
+    </table>
+</div>
 
-</table>
 <%= link_to "Back to search page", root_path %>
 
 <p>Next time we will post here how users formulate their search</p>
