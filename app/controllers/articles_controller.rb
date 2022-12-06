@@ -6,10 +6,8 @@ class ArticlesController < ApplicationController
     if params[:query].present?
       # Search for articles with title that contains the params[:query] and save it to @articles variable.
       @articles = Article.where("title LIKE ?", "%#{params[:query]}%")
-
       # Remove all non-alphanumeric characters from the params[:query] and save it to query variable.
-      query = params[:query].gsub!(/[^0-9A-Za-z]/, ' ')
-      
+      query = params[:query].gsub!(/[^0-9A-Za-z]/, ' ')      
       # Split the query variable into an array of words.
       query.split.each do |word|
         if word.length > 2
@@ -20,12 +18,8 @@ class ArticlesController < ApplicationController
           end
         end          
       end
-
       # Save the params[:query] to input field of seaches table.
       Search.create(input: query)
-
-
-
     else
       @articles = Article.all
     end
