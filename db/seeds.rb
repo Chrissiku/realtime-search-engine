@@ -9,9 +9,9 @@
 require "faker"
 
 # Create 10 articles
-10.times do
+15.times do
     Article.create(
         title: Faker::Book.title,
-        content: Faker::Lorem.paragraph(sentence_count: 5)
+        content: Faker::Lorem.paragraph(sentence_count: 2)
     )
 end

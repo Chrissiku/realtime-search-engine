@@ -17,7 +17,7 @@ class ArticlesController < ApplicationController
       end
 
       # Save the params[:query] to input field of seaches table.
-      Search.create(query: params[:query])
+      Search.create(input: params[:query])
 
     else
       @articles = Article.all

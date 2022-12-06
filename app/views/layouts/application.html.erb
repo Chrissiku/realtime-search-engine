@@ -10,6 +10,21 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+      <%= link_to "Search Engine", articles_path, class: "navbar-brand" %> 
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <%= link_to "Search", articles_path, class: "nav-link" %>                                    
+          </li>
+          <li class="nav-item">
+             <%= link_to "View Analytics", analytics_index_path, class: "nav-link" %>  
+          </li>
+        </ul>
+      </div>
+      </div>
+    </nav>
 
   <body>
     <div class="container justify-content-center text-center ">
